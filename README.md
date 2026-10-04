@@ -48,3 +48,7 @@ The [published skill discovery index](https://home.ashwingopalsamy.in/.well-know
 ## Licensing and privacy
 
 MIT applies to client/plugin source. Public journal content is governed by the site's own permitted-use guidance. Do not copy private application files, construction records, worker identities, addresses, analytics code, tokens or private keys into this repository. The export allowlist is recorded in `export-manifest.json`. Synthetic fixtures do not describe the real household.
+
+## Verified MCP distribution
+
+The [official MCP registry entry](https://registry.modelcontextprotocol.io/v0.1/servers/in.ashwingopalsamy.home%2Fagam-journal/versions/1.1.0) lists version 1.1.0 with verified control of home.ashwingopalsamy.in. Connect to https://home.ashwingopalsamy.in/mcp; see the [developer guide](https://home.ashwingopalsamy.in/developers/) for keyless reads, limits and citations. This listing is separate from the experimental server card and does not imply npm/PyPI publication.

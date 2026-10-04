@@ -104,7 +104,7 @@
     {
       "source": "integrations/README.md",
       "path": "README.md",
-      "sha256": "223bb1e809d5b25d25c06a1451ff46d0d48dff9036399672119ea6bbc0e5d934"
+      "sha256": "9f32de67a72e6313cae3dd9be872bb615ac4eb1205245b0e891725151b694e3a"
     },
     {
       "source": "integrations/mcp.json",
