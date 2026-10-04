@@ -1,0 +1,17 @@
+[build-system]
+requires = ['setuptools==80.9.0', 'wheel==0.45.1']
+build-backend = 'setuptools.build_meta'
+[project]
+name = 'agam-journal'
+version = '1.0.0'
+description = 'Typed public-read client and CLI for the Agam construction journal'
+requires-python = '>=3.11'
+license = 'MIT'
+readme = 'README.md'
+[project.urls]
+Homepage = 'https://home.ashwingopalsamy.in/developers/'
+Repository = 'https://github.com/ashwingopalsamy/agam-integrations'
+[project.scripts]
+agam-journal-py = 'agam_journal.cli:main'
+[tool.setuptools.package-data]
+agam_journal = ['py.typed']

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agam-journal",
+  "version": "1.0.0",
+  "description": "Search and cite Agam public construction records with precision and provenance.",
+  "author": {
+    "name": "Ashwin Gopalsamy"
+  },
+  "homepage": "https://home.ashwingopalsamy.in/developers/",
+  "repository": "https://github.com/ashwingopalsamy/agam-integrations",
+  "license": "MIT"
+}

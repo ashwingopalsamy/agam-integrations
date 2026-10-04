@@ -1,0 +1,30 @@
+{
+  "name": "agam-journal-client",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Typed public-read client and CLI for Agam",
+  "homepage": "https://home.ashwingopalsamy.in/developers/",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js"
+    }
+  },
+  "bin": {
+    "agam-journal": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwingopalsamy/agam-integrations.git",
+    "directory": "clients/typescript"
+  }
+}

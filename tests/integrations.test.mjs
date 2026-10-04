@@ -1,0 +1,12 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import Ajv from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
+import { JournalClient, JournalError } from '../clients/typescript/dist/client.js';
+import { fixture,site,page,record } from './fixture.mjs';
+const run=promisify(execFile);
+test('portable plugin and public synthetic contract validate',async()=>{const ajv=new Ajv({strict:false});addFormats(ajv);for(const [doc,schema] of [['plugin.json','plugin.schema.json'],['mcp.json','plugin-mcp.schema.json']]){const v=ajv.compile(JSON.parse(await readFile('schemas/'+schema,'utf8')));assert.ok(v(JSON.parse(await readFile(doc,'utf8'))),JSON.stringify(v.errors));}const schemas=JSON.parse(await readFile('schemas/api-contract.json','utf8'));for(const [name,value] of [['Site',site],['ContentPage',page],['Content',record]]){const v=ajv.compile(schemas[name]);assert.ok(v(value),JSON.stringify(v.errors));}});
+test('four reads, empty search, typed errors and CLI',async()=>{const server=fixture();await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port;try{const c=new JournalClient(origin);assert.equal((await c.site()).name,'Agam');assert.equal((await c.list()).items.length,1);assert.equal((await c.search('roof')).items[0].id,record.id);assert.equal((await c.search('missing')).items.length,0);assert.equal((await c.get(record.id)).visibility,'public');await assert.rejects(c.get('unknown'),e=>e instanceof JournalError&&e.status===404);const args=['clients/typescript/dist/cli.js','--base-url',origin];assert.equal(JSON.parse((await run('node',[...args,'site'])).stdout).name,'Agam');assert.equal(JSON.parse((await run('node',[...args,'read',record.id])).stdout).id,record.id);await assert.rejects(run('node',[...args,'read','unknown']),e=>e.code===1);assert.match((await run('node',['clients/typescript/dist/cli.js','--help'])).stdout,/Agam/);}finally{await new Promise(r=>server.close(r));}});

@@ -1,0 +1,7 @@
+/node_modules
+/artifacts/
+/clients/typescript/dist/
+/clients/python/build/
+/clients/python/*.egg-info/
+**/__pycache__/
+.venv/

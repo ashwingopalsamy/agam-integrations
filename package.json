@@ -1,0 +1,19 @@
+{
+  "name": "agam-integrations",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs && python3 -m unittest discover -s tests -p \"test_*.py\"",
+    "verify:trust": "node scripts/verify-trust.mjs"
+  },
+  "devDependencies": {
+    "@cfworker/json-schema": "4.1.1",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "@types/node": "26.6.4"
+  }
+}

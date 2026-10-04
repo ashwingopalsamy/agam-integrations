@@ -1,0 +1,160 @@
+{
+  "purpose": "Explicit client/plugin/skill allowlist; no household records or private application history.",
+  "files": [
+    {
+      "source": "LICENSE",
+      "path": "LICENSE",
+      "sha256": "8b11c6eb48978aa555d8dc1621f7508a6ded704bc94a00a684dd9024c2e92aad"
+    },
+    {
+      "source": "docs/agent-specs/plugin.schema.json",
+      "path": "schemas/plugin.schema.json",
+      "sha256": "0a4aad95ce337878ad38802ebf0daa3fde76abe3f65400c86bcbb1ec0b3ab883"
+    },
+    {
+      "source": "docs/agent-specs/plugin-mcp.schema.json",
+      "path": "schemas/plugin-mcp.schema.json",
+      "sha256": "6539175bfcdf43085855183e86da40ea94b166547a72b47ae9a0a390516d3acb"
+    },
+    {
+      "source": "agent/trust.ts",
+      "path": "verification/trust.ts",
+      "sha256": "4f54ba887b81bc8366017e3c3f082b1a395d68a335ec4ad791daf41ed0836cc1"
+    },
+    {
+      "source": "clients/typescript/package.json",
+      "path": "clients/typescript/package.json",
+      "sha256": "27403fcbf6db64d6475d06aace807b852d7c14d01e954a40a05c27772856a869"
+    },
+    {
+      "source": "clients/typescript/README.md",
+      "path": "clients/typescript/README.md",
+      "sha256": "525f08e8be5b4c030cd83004e32a9c7bf5d1a6020163ba97a1cc059696b3743a"
+    },
+    {
+      "source": "clients/typescript/LICENSE",
+      "path": "clients/typescript/LICENSE",
+      "sha256": "8b11c6eb48978aa555d8dc1621f7508a6ded704bc94a00a684dd9024c2e92aad"
+    },
+    {
+      "source": "clients/typescript/src/client.ts",
+      "path": "clients/typescript/src/client.ts",
+      "sha256": "d17bc0e2ccb23a7e4740e1d2777a11488e8e79e3e762c01eebe3dd6f757ceffe"
+    },
+    {
+      "source": "clients/typescript/src/cli.ts",
+      "path": "clients/typescript/src/cli.ts",
+      "sha256": "d2cbd2c8b93a98f97a338ed74335b9fabb8f1d04b33f9b30e7eb8a0e4fe540d7"
+    },
+    {
+      "source": "clients/typescript/src/types.ts",
+      "path": "clients/typescript/src/types.ts",
+      "sha256": "cfa5a36bd9d3d9dbe44510b80bc904eb4274cda92fae288f81305d6bbd02ebb3"
+    },
+    {
+      "source": "clients/python/pyproject.toml",
+      "path": "clients/python/pyproject.toml",
+      "sha256": "a1e332aee67e4a9840ecbb0277d2345eca7a18ed40f1abc59c9769599c06f873"
+    },
+    {
+      "source": "clients/python/README.md",
+      "path": "clients/python/README.md",
+      "sha256": "874f44d25ae0edd56ebea462cf8685ff90080533acecd0bf54d8a18ce149e192"
+    },
+    {
+      "source": "clients/python/LICENSE",
+      "path": "clients/python/LICENSE",
+      "sha256": "8b11c6eb48978aa555d8dc1621f7508a6ded704bc94a00a684dd9024c2e92aad"
+    },
+    {
+      "source": "clients/python/agam_journal/__init__.py",
+      "path": "clients/python/agam_journal/__init__.py",
+      "sha256": "91986cc1cc6b652819d4f94741aa3b35583b597e003922c6b588ef30b48d4373"
+    },
+    {
+      "source": "clients/python/agam_journal/cli.py",
+      "path": "clients/python/agam_journal/cli.py",
+      "sha256": "463c94f5153ea0b42cae92ecf4380379ef61d86b309d52baa785d076c2297b04"
+    },
+    {
+      "source": "clients/python/agam_journal/types.py",
+      "path": "clients/python/agam_journal/types.py",
+      "sha256": "7dffcab2c61d36f34b17a7752227252b7a9e977739fd7d4a1ccafb6fd3d91c51"
+    },
+    {
+      "source": "clients/python/agam_journal/py.typed",
+      "path": "clients/python/agam_journal/py.typed",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "integrations/.github/workflows/verify.yml",
+      "path": ".github/workflows/verify.yml",
+      "sha256": "b4efa33438cf6b9ab36e5cd393c50c389494cbac7983d74dbe6a08a9a3c5b12b"
+    },
+    {
+      "source": "integrations/.gitignore",
+      "path": ".gitignore",
+      "sha256": "c7cd0e842f1376ed479e2d1a2e0d1fc6c4ff897e8228feb276166dcb3c4821f0"
+    },
+    {
+      "source": "integrations/AGENTS.md",
+      "path": "AGENTS.md",
+      "sha256": "67122aa54b7219e23b05a969d82988f0c462f4d5ab3b5adc2a1ab1bb3e4c93c9"
+    },
+    {
+      "source": "integrations/README.md",
+      "path": "README.md",
+      "sha256": "223bb1e809d5b25d25c06a1451ff46d0d48dff9036399672119ea6bbc0e5d934"
+    },
+    {
+      "source": "integrations/mcp.json",
+      "path": "mcp.json",
+      "sha256": "e93c8cff5444da3d078e228b0b933cb6558af96ffb0b1300841cfc5264ada2be"
+    },
+    {
+      "source": "integrations/package-lock.json",
+      "path": "package-lock.json",
+      "sha256": "e2ecfd4d5a9223f7dbec4f393190ce068dcb63d7695b0e1f6bdc379689488b13"
+    },
+    {
+      "source": "integrations/package.json",
+      "path": "package.json",
+      "sha256": "c59ebc63ed88e5df0ac7e77ae0b1368fd46fac24839ecca1f1fd11ebc8d7dc8f"
+    },
+    {
+      "source": "integrations/plugin.json",
+      "path": "plugin.json",
+      "sha256": "634b7c5e0f4a12c28f3c66c84e1969f37901b318975e53e8364cf0cf4c2cb858"
+    },
+    {
+      "source": "integrations/scripts/build.ts",
+      "path": "scripts/build.mjs",
+      "sha256": "5ce2619e051e73ab071eec562f0e8a6543e90e9c6cd404d9c11a558b11fde0a8"
+    },
+    {
+      "source": "integrations/scripts/verify-trust.mjs",
+      "path": "scripts/verify-trust.mjs",
+      "sha256": "01483e13a50a84ccefd7a5c206923c55108b327f5c532e0034b14b57bc3360cf"
+    },
+    {
+      "source": "integrations/skills/agam-journal/SKILL.md",
+      "path": "skills/agam-journal/SKILL.md",
+      "sha256": "9c1b4dcd2d3e1f1e211fd82bbad110784010b8834c3c6462a54e26764f18745c"
+    },
+    {
+      "source": "integrations/tests/fixture.mjs",
+      "path": "tests/fixture.mjs",
+      "sha256": "2881b60465c75214910f930c055eb3cd79a32e16e225f69baaafa2d3da456a78"
+    },
+    {
+      "source": "integrations/tests/integrations.test.mjs",
+      "path": "tests/integrations.test.mjs",
+      "sha256": "97b4ec01efda4d19ec397144033d610d7ce3b1f5afaf180da7e75d760d875e0b"
+    },
+    {
+      "source": "integrations/tests/test_client.py",
+      "path": "tests/test_client.py",
+      "sha256": "bb52a224c900b3bc8b5c4bd0ca55e31c68497f31a2dfa6c912b4fd85154d3987"
+    }
+  ]
+}

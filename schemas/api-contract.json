@@ -1,0 +1,654 @@
+{
+  "Content": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]{0,119}$",
+        "description": "Stable published content ID; never a path or URL."
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "page",
+          "summary",
+          "cost",
+          "work"
+        ]
+      },
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "canonical": {
+        "type": "string",
+        "format": "uri"
+      },
+      "last_updated": {
+        "type": "string"
+      },
+      "revision": {
+        "type": "string"
+      },
+      "language": {
+        "type": "string",
+        "const": "en"
+      },
+      "visibility": {
+        "type": "string",
+        "const": "public"
+      },
+      "source": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "recorded_at": {
+              "type": "string"
+            },
+            "precision": {
+              "type": "string",
+              "enum": [
+                "day",
+                "month"
+              ]
+            }
+          },
+          "required": [
+            "label",
+            "url",
+            "recorded_at",
+            "precision"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "review": {
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "owner_reviewed",
+              "source_checked"
+            ]
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "text": {
+        "type": "string"
+      },
+      "cost": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string",
+                "const": "INR"
+              },
+              "minor_unit": {
+                "type": "string",
+                "const": "paise"
+              },
+              "amount_minor": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "decimal": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "currency",
+              "minor_unit",
+              "amount_minor",
+              "decimal"
+            ],
+            "additionalProperties": false
+          },
+          "category": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "counted": {
+            "type": "boolean"
+          },
+          "precision": {
+            "type": "string",
+            "enum": [
+              "day",
+              "month",
+              "billing_cycle",
+              "undated",
+              "cumulative"
+            ]
+          },
+          "from": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "to": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "coverage": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "category",
+          "scope",
+          "kind",
+          "counted",
+          "precision",
+          "from",
+          "to",
+          "coverage"
+        ],
+        "additionalProperties": false
+      },
+      "work": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "date_semantics": {
+            "type": "string",
+            "const": "Local calendar day in Asia/Kolkata, not an instant"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "worked",
+              "no_work"
+            ]
+          },
+          "crew": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "crew_precision": {
+            "type": "string",
+            "enum": [
+              "exact",
+              "minimum",
+              "unknown"
+            ]
+          },
+          "activities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "date",
+          "date_semantics",
+          "state",
+          "crew",
+          "crew_precision",
+          "activities"
+        ],
+        "additionalProperties": false
+      },
+      "summary": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string",
+                "const": "INR"
+              },
+              "minor_unit": {
+                "type": "string",
+                "const": "paise"
+              },
+              "amount_minor": {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              "decimal": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "currency",
+              "minor_unit",
+              "amount_minor",
+              "decimal"
+            ],
+            "additionalProperties": false
+          },
+          "monthly": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "month": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "object",
+                  "properties": {
+                    "currency": {
+                      "type": "string",
+                      "const": "INR"
+                    },
+                    "minor_unit": {
+                      "type": "string",
+                      "const": "paise"
+                    },
+                    "amount_minor": {
+                      "type": "integer",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    },
+                    "decimal": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "currency",
+                    "minor_unit",
+                    "amount_minor",
+                    "decimal"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "month",
+                "amount"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "object",
+                  "properties": {
+                    "currency": {
+                      "type": "string",
+                      "const": "INR"
+                    },
+                    "minor_unit": {
+                      "type": "string",
+                      "const": "paise"
+                    },
+                    "amount_minor": {
+                      "type": "integer",
+                      "minimum": -9007199254740991,
+                      "maximum": 9007199254740991
+                    },
+                    "decimal": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "currency",
+                    "minor_unit",
+                    "amount_minor",
+                    "decimal"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "amount"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "work_entries": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "worker_days_minimum": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "worker_days_is_lower_bound": {
+            "type": "boolean"
+          },
+          "stage": {
+            "type": "object",
+            "properties": {
+              "datum": {
+                "type": "string",
+                "const": "basement_floor"
+              },
+              "lintel_ft_approx": {
+                "type": "number"
+              },
+              "walls_ft_approx": {
+                "type": "number"
+              },
+              "roof_cast": {
+                "type": "boolean"
+              },
+              "basement_ft_stated": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "slab_in_stated": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "roof_work": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "roof_work_as_of": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "datum",
+              "lintel_ft_approx",
+              "walls_ft_approx",
+              "roof_cast",
+              "basement_ft_stated",
+              "slab_in_stated",
+              "roof_work",
+              "roof_work_as_of"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "total",
+          "monthly",
+          "categories",
+          "work_entries",
+          "worker_days_minimum",
+          "worker_days_is_lower_bound",
+          "stage"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "id",
+      "kind",
+      "title",
+      "description",
+      "canonical",
+      "last_updated",
+      "revision",
+      "language",
+      "visibility",
+      "source",
+      "review",
+      "text"
+    ],
+    "additionalProperties": false
+  },
+  "ContentPage": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,119}$",
+              "description": "Stable published content ID; never a path or URL."
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "page",
+                "summary",
+                "cost",
+                "work"
+              ]
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "canonical": {
+              "type": "string",
+              "format": "uri"
+            },
+            "last_updated": {
+              "type": "string"
+            },
+            "revision": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "title",
+            "description",
+            "canonical",
+            "last_updated",
+            "revision"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "next_cursor": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "snapshot": {
+        "type": "string"
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": -9007199254740991,
+        "maximum": 9007199254740991
+      }
+    },
+    "required": [
+      "items",
+      "next_cursor",
+      "snapshot",
+      "limit"
+    ],
+    "additionalProperties": false
+  },
+  "Site": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "const": "Agam"
+      },
+      "origin": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": {
+        "type": "string"
+      },
+      "api_version": {
+        "type": "string"
+      },
+      "published_at": {
+        "type": "string"
+      },
+      "authentication": {
+        "type": "string",
+        "const": "none; public read only"
+      },
+      "pricing": {
+        "type": "string",
+        "const": "Free informational access; no checkout"
+      },
+      "capabilities": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "developers": {
+            "type": "string",
+            "format": "uri"
+          },
+          "guide": {
+            "type": "string",
+            "format": "uri"
+          },
+          "markdown": {
+            "type": "string",
+            "format": "uri"
+          },
+          "openapi": {
+            "type": "string",
+            "format": "uri"
+          },
+          "catalog": {
+            "type": "string",
+            "format": "uri"
+          },
+          "mcp": {
+            "type": "string",
+            "format": "uri"
+          },
+          "auth": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "developers",
+          "guide",
+          "markdown",
+          "openapi",
+          "catalog",
+          "mcp",
+          "auth"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "name",
+      "origin",
+      "description",
+      "api_version",
+      "published_at",
+      "authentication",
+      "pricing",
+      "capabilities",
+      "links"
+    ],
+    "additionalProperties": false
+  },
+  "Problem": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "format": "uri"
+      },
+      "title": {
+        "type": "string"
+      },
+      "status": {
+        "type": "integer",
+        "minimum": -9007199254740991,
+        "maximum": 9007199254740991
+      },
+      "detail": {
+        "type": "string"
+      },
+      "instance": {
+        "type": "string"
+      },
+      "code": {
+        "type": "string"
+      },
+      "request_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "type",
+      "title",
+      "status",
+      "detail",
+      "instance",
+      "code",
+      "request_id"
+    ],
+    "additionalProperties": false
+  }
+}
